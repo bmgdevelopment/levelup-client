@@ -10,7 +10,8 @@ export const ApplicationViews = () => {
         style={{
           margin: "5rem 2rem",
           lineHeight: "1.75rem",
-          backgroundColor: "lightgreen"
+          padding: "3em",
+          border: "1px solid lightgray"
         }}
       >
         <GameProvider>
