@@ -31,7 +31,7 @@ export const GameForm = () => {
     
   const changeGameKeys = (event) => {
     const newGameState = { ...currentGame };
-    
+
     newGameState.title = event.target.value;
     newGameState.maker = event.target.value;
     newGameState.numberOfPlayers = event.target.value;
@@ -85,7 +85,7 @@ export const GameForm = () => {
       </button>
     </form>
   );
-};
+}; 
 
   /*
         REFACTOR CHALLENGE START
