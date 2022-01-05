@@ -96,8 +96,6 @@ export const GameForm = () => {
             <option value="2">Experienced</option>
             <option value="3">Professional</option>
             <option value="4">Expert</option>
-           
-    
           </select>
         </div>
       </fieldset>
