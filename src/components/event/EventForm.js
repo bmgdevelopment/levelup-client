@@ -1,9 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
-import { EventContext } from "../game/EventProvider";
+import { EventContext } from "./EventProvider";
+import { GameContext } from "../game/GameProvider";
 import { useHistory } from "react-router-dom";
 
 export const EventForm = () => {
     const { createEvent, getEvents } = useContext(EventContext);
+    const { games, getGames } = useContext(GameContext);
     const history = useHistory();
     
     const [currentEvent, setEvent] = useState({
@@ -15,7 +17,7 @@ export const EventForm = () => {
     });
   
     useEffect(() => {
-        getEvents();
+        getGames();
     }, []);
 
 
@@ -23,12 +25,8 @@ export const EventForm = () => {
     const changeEventState = (domEvent) => {
         const newEventState = {...currentEvent}
 
-        newEventState.gamerId = domEvent.target.value;
-        newEventState.description = domEvent.target.value;
-        newEventState.gameId = domEvent.target.value;
-        newEventState.date = domEvent.target.value;
-        newEventState.time = domEvent.target.value;
-
+        newEventState.target.name = domEvent.target.value;
+       
         setEvent(newEventState)
     };
 
