@@ -10,7 +10,7 @@ export const GameForm = () => {
   const [currentGame, setCurrentGame] = useState({
     title: "",
     maker: "",
-    gameTypeId: 0,
+    gameTypeId: 1,
     numberOfPlayers: 1,
     skillLevel: 1
   });
@@ -135,7 +135,7 @@ export const GameForm = () => {
             title: currentGame.title,
             numberOfPlayers: parseInt(currentGame.numberOfPlayers),
             skillLevel: parseInt(currentGame.skillLevel),
-            gameTypeId: parseInt(currentGame.gameTypeId),
+            gameTypeId: parseInt(currentGame.gameTypeId)
           };
 
           // Send POST request to your API

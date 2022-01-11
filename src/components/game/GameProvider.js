@@ -9,7 +9,8 @@ export const GameProvider = (props) => {
   const getGames = () => {
     return fetch("http://localhost:8000/games", {
       headers: {
-        Authorization: `Token ${localStorage.getItem("lu_token")}`,
+        "Authorization": `Token ${localStorage.getItem("lu_token")}`,
+        "Content-Type": "application/json"      
       },
     })
       .then((response) => response.json())
@@ -20,9 +21,10 @@ export const GameProvider = (props) => {
     return fetch("http://localhost:8000/games", {
       method: "POST",
       headers: {
-        Authorization: `Token ${localStorage.getItem("lu_token")}`,
-        body: JSON.stringify(game)
-      }
+        "Authorization": `Token ${localStorage.getItem("lu_token")}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(game)
     })
     .then((response) => response.json())
     .then(getGames);
@@ -31,7 +33,8 @@ export const GameProvider = (props) => {
   const getGameTypes = () => {
     return fetch("http://localhost:8000/gametypes", {
       headers: {
-        Authorization: `Token ${localStorage.getItem("lu_token")}`,
+        "Authorization": `Token ${localStorage.getItem("lu_token")}`,
+        "Content-Type": "application/json"
       },
     })
     .then((response) => response.json())
