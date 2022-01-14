@@ -36,8 +36,8 @@ export const EventList = (props) => {
                 year: "numeric",
                 month: "long",
                 day: "numeric",
-              })}
-              @ {event.time} 24 hours
+              })} 
+               @ {event.time} 24 hours
             </div>
           </section>
         );

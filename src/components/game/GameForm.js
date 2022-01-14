@@ -149,7 +149,7 @@ export const GameForm = () => {
         }}
         className="btn btn-primary"
       >
-        Create
+        Create Game
       </button>
     </form>
   );

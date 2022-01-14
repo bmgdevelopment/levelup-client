@@ -4,13 +4,9 @@ import { GameContext } from "../game/GameProvider";
 import { useHistory } from "react-router-dom";
 
 export const EventForm = () => {
-    const { createEvent, getEvents } = useContext(EventContext);
+    const { createEvent } = useContext(EventContext);
     const { games, getGames } = useContext(GameContext);
     const history = useHistory();
-    const registerDateTime = Date(Date.now()).slice(0, 24) //'Tue Jan 11 2022 01:34:47'
-    const dateOnly = registerDateTime.slice(0,15) //'Tue Jan 11 2022' or slice(4, 15) for 'Jan 11 2022'
-    const timeOnly = registerDateTime.slice(16) //'01:34:47'
-
 
     const [currentEvent, setEvent] = useState({
         gamerId: 1,
@@ -121,9 +117,11 @@ export const EventForm = () => {
             date: currentEvent.datetime.slice(0,10),
             time: currentEvent.datetime.slice(11)
             }
+
+            createEvent(registeredEvent).then(() => history.push("/events"))
         }}
         className="btn btn-primary"
-      >
+      > 
         Create Event
       </button>
     </form>
