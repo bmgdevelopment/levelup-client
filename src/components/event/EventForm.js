@@ -18,7 +18,7 @@ export const EventForm = () => {
         gameId: 1,
         date: "",
         time: "",
-        datetime: ""
+        datetime: ""  
     });
   
     useEffect(() => {
@@ -73,7 +73,8 @@ export const EventForm = () => {
           </select>
         </div>
       </fieldset>
-
+      
+      {/* 
       <fieldset>
         <div className="form-group">
           <label htmlFor="date">Date: </label>
@@ -88,7 +89,8 @@ export const EventForm = () => {
             onChange={changeEventState}
           />
         </div>
-      </fieldset>
+      </fieldset> 
+      */}
 
       <fieldset>
         <div className="form-group">
@@ -112,9 +114,13 @@ export const EventForm = () => {
         onClick={(evt) => {
           evt.preventDefault();
 
-          // Create the event
-
-          // Once event is created, redirect user to event list
+          const registeredEvent = {
+            gamerId: currentEvent.gamerId,
+            description: currentEvent.description,
+            gameId: currentEvent.gameId,
+            date: currentEvent.datetime.slice(0,10),
+            time: currentEvent.datetime.slice(11)
+            }
         }}
         className="btn btn-primary"
       >
@@ -126,7 +132,8 @@ export const EventForm = () => {
 
 
 /*
-DATE ONLY: currentEvent.datetime.slice(0,10)
+DATE ONLY: 
+currentEvent.datetime.slice(0,10)
 output --- '2022-01-14'
 
 new Date(currentEvent.datetime.slice(0,10)).toLocaleDateString("en-US", {
@@ -137,7 +144,8 @@ new Date(currentEvent.datetime.slice(0,10)).toLocaleDateString("en-US", {
               })
 'Thursday, January 13, 2022'
 
-TIME ONLY: currentEvent.datetime.slice(11)
+TIME ONLY: 
+currentEvent.datetime.slice(11)
 output -- '00:30'
 
 BOTH: currentEvent.datetime
