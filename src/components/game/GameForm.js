@@ -24,6 +24,11 @@ export const GameForm = () => {
     const newGameState = {...currentGame };
 
     newGameState[event.target.name] = event.target.value;
+    //newGameState[title] = ''
+    //newGameState[maker] = ''
+    //newGameState[numberOfPlayer] = '1'
+    //newGameState[skillLevel] = '1'
+    //newGameState[gameTypeId] = '1'
 
     setCurrentGame(newGameState);
   };
@@ -32,6 +37,7 @@ export const GameForm = () => {
   return (
     <form className="gameForm">
       <h2 className="gameForm__title">Register New Game</h2>
+     
       <fieldset>
         <div className="form-group">
           <label htmlFor="title">Title: </label>
@@ -116,7 +122,7 @@ export const GameForm = () => {
           >
             <option value="0">Select a game type</option>
             {gameTypes.map(type => {
-              return(
+              return (
                 <option value={type.id} key={type.id}>{type.label}</option>
               )
             })}

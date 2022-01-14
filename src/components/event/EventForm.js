@@ -13,9 +13,9 @@ export const EventForm = () => {
 
 
     const [currentEvent, setEvent] = useState({
-        gamerId: 0,
+        gamerId: 1,
         description: "",
-        gameId: 0,
+        gameId: 1,
         date: "",
         time: "",
         datetime: ""
@@ -26,11 +26,10 @@ export const EventForm = () => {
     }, []);
 
 
-
     const changeEventState = (domEvent) => {
         const newEventState = {...currentEvent}
 
-        newEventState[event.target.name] = domEvent.target.value;
+        newEventState[domEvent.target.name] = domEvent.target.value;
        
         setEvent(newEventState)
     };
@@ -124,3 +123,23 @@ export const EventForm = () => {
     </form>
   );
 };
+
+
+/*
+DATE ONLY: currentEvent.datetime.slice(0,10)
+output --- '2022-01-14'
+
+new Date(currentEvent.datetime.slice(0,10)).toLocaleDateString("en-US", {
+                weekday: "long",
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })
+'Thursday, January 13, 2022'
+
+TIME ONLY: currentEvent.datetime.slice(11)
+output -- '00:30'
+
+BOTH: currentEvent.datetime
+output -- '2022-01-14T00:30'
+*/
