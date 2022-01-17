@@ -4,8 +4,8 @@ import { useHistory } from "react-router-dom";
 import "./Events.css";
 
 
-export const EventList = (props) => {
-  const { events, getEvents } = useContext(EventContext);
+export const EventList = () => {
+  const { events, getEvents, joinEvent, leaveEvent } = useContext(EventContext);
   const history = useHistory()
 
   useEffect(() => {
