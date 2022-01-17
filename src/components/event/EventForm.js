@@ -12,8 +12,6 @@ export const EventForm = () => {
         gamerId: 1,
         description: "",
         gameId: 1,
-        date: "",
-        time: "",
         datetime: ""  
     });
   
@@ -69,24 +67,6 @@ export const EventForm = () => {
           </select>
         </div>
       </fieldset>
-      
-      {/* 
-      <fieldset>
-        <div className="form-group">
-          <label htmlFor="date">Date: </label>
-          <input
-            type="date"
-            name="date"
-            required
-            autoFocus
-            className="form-control"
-            required pattern="\d{4}-\d{2}-\d{2}"
-            value={currentEvent.date}
-            onChange={changeEventState}
-          />
-        </div>
-      </fieldset> 
-      */}
 
       <fieldset>
         <div className="form-group">
@@ -141,25 +121,3 @@ export const EventForm = () => {
     </form>
   );
 };
-
-
-/*
-DATE ONLY: 
-currentEvent.datetime.slice(0,10)
-output --- '2022-01-14'
-
-new Date(currentEvent.datetime.slice(0,10)).toLocaleDateString("en-US", {
-                weekday: "long",
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })
-'Thursday, January 13, 2022'
-
-TIME ONLY: 
-currentEvent.datetime.slice(11)
-output -- '00:30'
-
-BOTH: currentEvent.datetime
-output -- '2022-01-14T00:30'
-*/

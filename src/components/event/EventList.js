@@ -1,6 +1,8 @@
 import React, { useContext, useEffect } from "react";
 import { EventContext } from "./EventProvider.js";
 import { useHistory } from "react-router-dom";
+import "./Events.css";
+
 
 export const EventList = (props) => {
   const { events, getEvents } = useContext(EventContext);
@@ -18,7 +20,7 @@ export const EventList = (props) => {
         history.push({ pathname: "/events/new"});
       }}
     >
-      Create New Event
+      Schedule New Event
     </button>
 
     <article className="events">
@@ -39,6 +41,10 @@ export const EventList = (props) => {
               })} 
                @ {event.time}
             </div>
+
+            <button className="btn btn-2" onClick={() => joinEvent(event.id)}>
+              Join
+            </button>
           </section>
         );
       })}
