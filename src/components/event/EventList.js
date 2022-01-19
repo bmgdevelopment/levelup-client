@@ -42,9 +42,21 @@ export const EventList = () => {
                @ {event.time}
             </div>
 
-            <button className="btn btn-2" onClick={() => joinEvent(event.id)}>
+            {/* <button className="btn btn-2" onClick={() => joinEvent(event.id)}>
               Join
-            </button>
+            </button> */}
+
+             {event.joined ? (
+              <button
+                className="btn btn-3"
+                onClick={() => leaveEvent(event.id)}>
+                Leave
+              </button>
+            ) : (
+              <button className="btn btn-2" onClick={() => joinEvent(event.id)}>
+                Join
+              </button>
+            )}
           </section>
         );
       })}
